@@ -1,15 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
+{% extends "base.html" %}
+{% block title %}
+index
+{% endblock title %}
+{% block content %}
+    <p>Hello, index.html here!</p>
+    <p>{{some_text}}</p>
+    <p>{{current_year}}</p>
 
-        <meta charset="UTF-8">
-        <title>Hello, SmartNinja</title>
-        <link rel="stylesheet" href="/static/css/style.css">
+<ul>
+    {% for city in cities %}
+    <li>{{city}}</li>
+    {% endfor %}
+</ul>
 
-    </head>
+{% if logged_in %}
+<button>Log out</button>
+{% else %}
+<button>Log in</button>
+{% endif %}
 
-    <body>
-        <h1>Welcome back to smartninja;)</h1>
-    <img src="/static/img/smartninja-logo-1547584690.png">
-    </body>
-</html>
+{% endblock content %}
